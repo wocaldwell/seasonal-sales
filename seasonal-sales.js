@@ -7,8 +7,9 @@ function listProducts() {
     myObj = JSON.parse(event.target.responseText);
     console.log(myObj);
     var productsDiv = document.getElementById("products");
-    for (thing in myObj) {
-        productsDiv.innerHTML += "<h2>" + myObj.products.name + "</h2>";
+    for (var i = 0; i < myObj.products.length; i++) {
+        productsDiv.innerHTML += `<h2>${myObj.products[i].name}</h2>
+                                  <p>${myObj.products[i].price}</p>`;
     };
 };
 productsRequest.open("GET", "products.json");
